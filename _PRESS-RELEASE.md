@@ -18,18 +18,23 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Recipe Log
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  >The market is people who cook, who want to log their recipes; they will benefit by centralizing the place where they store recipes. 
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > The product is an app that stores recipes for you. It will also help you filter through current recipes. 
 
 ## Problem ##
   > Describe the problem your product solves.
+  > The problem is that sometimes you want to cook, but don't know what to cook.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  > This product can give you one of your recipes randomly.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.

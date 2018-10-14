@@ -1,5 +1,5 @@
 const path = require('path');
-const db = require('../database/index');
+// const db = require('../database/index');
 const express = require('express');
 
 const PORT = 3000;

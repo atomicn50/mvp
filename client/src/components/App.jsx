@@ -1,4 +1,6 @@
 import React from 'react';
+import RecipeList from './RecipeList.jsx';
+import RecipeForm from './RecipeForm.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -8,7 +10,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>testdsding</div>
+      <div>
+        <RecipeList />
+        <RecipeForm />
+      </div>
     );
   }
 }

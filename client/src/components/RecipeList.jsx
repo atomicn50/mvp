@@ -1,22 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Ingredient from './Ingredient.jsx';
 
-const RecipeList = ({ name, ingredients }) => (
+const RecipeList = () => (
   <div>
-    <h1>{name}</h1>
-    {ingredients.map(ingredient => <Ingredient ingredient={ingredient} />)}
+    <h1>hi</h1>
   </div>
 );
-
-RecipeList.propTypes = {
-  name: PropTypes.string,
-  ingredients: PropTypes.array,
-};
-
-RecipeList.defaultProps = {
-  name: '',
-  ingredients: [],
-};
 
 export default RecipeList;

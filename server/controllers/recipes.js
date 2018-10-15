@@ -1,4 +1,4 @@
-import Recipe from '../../database/index';
+const Recipe = require('../../database/models/recipe');
 
 exports.saveRecipe = (recipe, callback) => {
   const newRecipe = new Recipe(recipe);
@@ -10,8 +10,11 @@ exports.saveRecipe = (recipe, callback) => {
   });
 };
 
-// exports.deleteRecipe = (recipe) => {
-  
-// };
-
-
+exports.getAllRecipes = (callback) => {
+  Recipe.find({}, (err, recipes) => {
+    if (err) {
+      callback(err);
+    }
+    callback(null, recipes);
+  });
+};

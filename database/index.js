@@ -14,3 +14,8 @@ const recipeSchema = new mongoose.Schema({
   name: String,
   ingredients: Array,
 });
+
+const Recipe = mongoose.model('Recipe', recipeSchema);
+
+export default Recipe;
+

@@ -11,6 +11,7 @@ class App extends React.Component {
       recipes: [],
     };
     this.getRecipes = this.getRecipes.bind(this);
+    this.removeRecipe = this.removeRecipe.bind(this);
   }
 
   componentDidMount() {
@@ -34,16 +35,25 @@ class App extends React.Component {
       .catch(err => console.error.bind(console, err));
   }
 
+  removeRecipe(recipeName) {
+    axios.delete(`/api/recipes/${recipeName}`)
+      .then(() => this.getRecipes())
+      .catch(err => console.error.bind(console, err));
+  }
+
   render() {
     const { recipes } = this.state;
     return (
       <AppContainer>
-        <Title>Cook Stuff</Title>
+        <Title>Bare Bones</Title>
         <RecipeForm
           getRecipes={this.getRecipes}
           addRecipe={this.addRecipe}
         />
-        <RecipeList recipes={recipes} />
+        <RecipeList
+          recipes={recipes}
+          removeRecipe={this.removeRecipe}
+        />
       </AppContainer>
     );
   }

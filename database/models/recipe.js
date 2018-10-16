@@ -18,5 +18,5 @@ const recipeSchema = new mongoose.Schema({
 const Recipe = mongoose.model('Recipe', recipeSchema);
 
 // Recipe.deleteMany({}, () => {console.log('deleted all recipes')}) 
-
+// Recipe.deleteOne({name: 332}, () => {console.log('deleted')})
 module.exports = Recipe;

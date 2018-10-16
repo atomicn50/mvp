@@ -20,3 +20,13 @@ exports.getAllRecipes = (callback) => {
     }
   });
 };
+
+exports.removeRecipe = (name, callback) => {
+  Recipe.deleteOne({name}, (err, success) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, success);
+    }
+  });
+};

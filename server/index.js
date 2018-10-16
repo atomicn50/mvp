@@ -32,6 +32,17 @@ app.get('/api/recipes', (req, res) => {
   });
 });
 
+app.delete('/api/recipes/:recipe', (req, res) => {
+  const { recipe } = req.params; 
+  controllers.removeRecipe(recipe, (err) => {
+    if (err) {
+      res.sendStatus(400);
+      return;
+    }
+    res.sendStatus(200);
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Listening at localhost on port ${PORT}`);
 });

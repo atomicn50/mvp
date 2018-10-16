@@ -10,12 +10,17 @@ class RecipeList extends React.Component {
       currentRecipe: {},
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleRemoval = this.handleRemoval.bind(this);
   }
 
   handleClick(currentRecipe) {
     this.setState({
       currentRecipe,
     });
+  }
+
+  handleRemoval(recipe) {
+    this.props.removeRecipe(recipe);
   }
 
   render() {
@@ -25,7 +30,7 @@ class RecipeList extends React.Component {
       <RecipeListContainer>
         <RecipesContainer>
           <h1>All Recipes</h1>
-          {recipes.map(recipe => <RecipeButton recipe={recipe} changeRecipe={this.handleClick} key={recipe._id} />)}
+          {recipes.map(recipe => <RecipeButton recipe={recipe} changeRecipe={this.handleClick} removeRecipe={this.handleRemoval} />)}
         </RecipesContainer>
         <CurrentRecipe recipe={currentRecipe} />
       </RecipeListContainer>

@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  FormContainer,
+  RecipeContainer,
+  IngredientsContainer,
+  StepsContainer,
+} from '../styles.jsx';
 
 class RecipeForm extends React.Component {
   constructor(props) {
@@ -6,9 +12,11 @@ class RecipeForm extends React.Component {
     this.state = {
       name: '',
       ingredients: '',
+      steps: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearInputFields = this.clearInputFields.bind(this);
   }
 
   handleChange(e) {
@@ -19,21 +27,39 @@ class RecipeForm extends React.Component {
 
   handleSubmit() {
     this.props.addRecipe(this.state);
+    this.clearInputFields();
+  }
+
+  clearInputFields() {
+    this.setState({
+      name: '',
+      ingredients: '',
+      steps: '',
+    });
   }
 
   render() {
+    const { name, ingredients, steps } = this.state;
     return (
-      <div>
-        <label htmlFor="recipeName">
-          Recipe Name
-          <input id="name" type="text" onChange={this.handleChange} />
-        </label>
-        <label htmlFor="ingredients">
-          Ingredients
-          <textarea id="ingredients" type="text" rows="20" cols="20" onChange={this.handleChange} />
-        </label>
+      <FormContainer>
+        <div>
+          <label htmlFor="recipeName">
+            Recipe Name
+            <input id="name" type="text" onChange={this.handleChange} value={name} />
+          </label>
+        </div>
+        <RecipeContainer>
+          <IngredientsContainer>
+            <textarea id="ingredients" type="text" rows="20" cols="20" onChange={this.handleChange} value={ingredients} />
+            <p>Ingredients</p>
+          </IngredientsContainer>
+          <StepsContainer>
+            <textarea id="steps" type="text" rows="20" cols="20" onChange={this.handleChange} value={steps} />
+            <p>Steps</p>
+          </StepsContainer>
+        </RecipeContainer>
         <button type="submit" onClick={this.handleSubmit}>Submit Recipe</button>
-      </div>
+      </FormContainer>
     );
   }
 }

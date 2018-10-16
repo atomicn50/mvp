@@ -13,9 +13,10 @@ app.use(bodyParser.json());
 
 app.post('/api/recipes', (req, res) => {
   const recipe = req.body;
-  controllers.saveRecipe(recipe, (err, success) => {
+  controllers.saveRecipe(recipe, (err) => {
     if (err) {
-      return console.error('error with saving recipe: ', err);
+      res.sendStatus(400);
+      return;
     }
     res.sendStatus(200);
   });
@@ -24,7 +25,8 @@ app.post('/api/recipes', (req, res) => {
 app.get('/api/recipes', (req, res) => {
   controllers.getAllRecipes((err, recipes) => {
     if (err) {
-      return console.error('error while retrieving recipes: ', err);
+      res.sendStatus(400);
+      return;
     }
     res.status(200).send(recipes);
   });

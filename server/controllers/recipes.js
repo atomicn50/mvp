@@ -5,8 +5,9 @@ exports.saveRecipe = (recipe, callback) => {
   newRecipe.save((err, success) => {
     if (err) {
       callback(err);
+    } else {
+      callback(null, success);
     }
-    callback(null, success);
   });
 };
 
@@ -14,7 +15,8 @@ exports.getAllRecipes = (callback) => {
   Recipe.find({}, (err, recipes) => {
     if (err) {
       callback(err);
+    } else {
+      callback(null, recipes);
     }
-    callback(null, recipes);
   });
 };
